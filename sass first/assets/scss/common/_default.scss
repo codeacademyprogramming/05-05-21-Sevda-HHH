@@ -1,0 +1,40 @@
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline-color: transparent;
+} 
+.container { 
+     width: 1024px;
+    margin:0  auto;  
+    &-fluid {
+        width: 100%;
+    }
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul li {
+    list-style: none;
+}
+
+.item {
+    &_txt {
+        color: black;
+    }
+    & &-txt {
+        color: rebeccapurple;
+    }
+}
+
+// flex
+.d-flex {
+    display: flex;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}

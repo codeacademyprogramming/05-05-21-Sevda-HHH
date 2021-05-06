@@ -1,0 +1,64 @@
+$breakpoint-xs:'xs';
+$breakpoint-lg:'lg';
+$breakpoint-md:'md';
+@mixin breaker($breakpoints){
+    @if $breakpoints==$breakpoint-xs {
+       @media screen and (min-width:600px) {
+           @content;
+       } 
+    }
+    @else if $breakpoints==$breakpoint-md{
+        @media screen and (min-width:960px) {
+            @content;
+        } 
+    }
+    @else if $breakpoints==$breakpoint-lg{
+        @media screen and (min-width:1200px) {
+            @content;
+        } 
+    }
+    @else if $breakpoints==''{
+        @media screen and (min-width:250px) {
+            @content;
+        } 
+    }
+}
+
+.col{
+    &-#{$breakpoint-xs}{
+        @include breaker($breakpoint-xs){ 
+               @for $value from 12 to 0 {
+                &-#{$value}{
+                width: calc(100%/12*#{$value}); 
+            }   
+            } 
+        }
+    }
+    &-#{$breakpoint-md}{
+        @include breaker($breakpoint-md){ 
+               @for $value from 12 to 0 {
+                &-#{$value}{
+                width: calc(100%/12*#{$value}); 
+            }   
+            } 
+        }
+    }
+    &-#{$breakpoint-lg}{
+        @include breaker($breakpoint-lg){ 
+               @for $value from 12 to 0{
+                &-#{$value}{
+                width: calc(100%/12*#{$value}); 
+            }   
+            } 
+        }
+    }
+    &{
+        @include breaker(''){ 
+               @for $value from 12 to 0 {
+                &-#{$value}{
+                width: calc(100%/12*#{$value}); 
+            }   
+            } 
+        }
+    }
+} 
