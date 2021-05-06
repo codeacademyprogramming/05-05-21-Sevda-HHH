@@ -1,0 +1,9 @@
+@mixin some_mix{
+    color: white
+}
+
+@function some-val($arg){
+    @return 'xl'
+}
+
+$some-val:some-val(1)
